@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projEscolaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="aluno">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cpf" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ra" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="id_curso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="curso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="carga_horaria" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="horario_inicio" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="horario_fim" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="numero_sala" Type="int" />
+  </EntityType>
+  <EntityType Name="curso_professor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_curso" Type="int" Nullable="false" />
+    <Property Name="id_professor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="professor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cpf" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="salario" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_aluno_curso">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="aluno" Type="Self.aluno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="aluno">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_curso_professor_curso">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="curso_professor" Type="Self.curso_professor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso_professor">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_curso_professor_professor">
+    <End Role="professor" Type="Self.professor" Multiplicity="1" />
+    <End Role="curso_professor" Type="Self.curso_professor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="professor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="curso_professor">
+        <PropertyRef Name="id_professor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="projEscolaModelStoreContainer">
+    <EntitySet Name="aluno" EntityType="Self.aluno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso" EntityType="Self.curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso_professor" EntityType="Self.curso_professor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="professor" EntityType="Self.professor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_aluno_curso" Association="Self.fk_aluno_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="aluno" EntitySet="aluno" />
+    </AssociationSet>
+    <AssociationSet Name="fk_curso_professor_curso" Association="Self.fk_curso_professor_curso">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="curso_professor" EntitySet="curso_professor" />
+    </AssociationSet>
+    <AssociationSet Name="fk_curso_professor_professor" Association="Self.fk_curso_professor_professor">
+      <End Role="professor" EntitySet="professor" />
+      <End Role="curso_professor" EntitySet="curso_professor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,6 @@
+Definição da arquitetura básica da solução           - 14/10/2020
+Definição do modelo relacional do banco de dados     - 14/10/2020
+Criação dos scripts para geração das tabelas         - 15/10/2020
+Criação do banco de dados                            - 15/10/2020
+Criação da solução                                   - 15/10/2020
+                               

@@ -1,0 +1,9 @@
+Criação e implementacao do módulo EF                 - 21/05/2020
+Criação e implementação do módulo dominio            - 21/05/2020
+Criação do módulo formulário                         - 21/05/2020
+Implementação da tela principal                      - 21/05/2020
+Implementação da tela de gerenciar aluno             - 22/05/2020
+Implementação da tela de gerenciar curso             - 22/05/2020
+Implementação da tela de gerenciar professor         - 23/05/2020
+Implementação da tela de gerenciar curso/ professor  - 23/05/2020
+Testes Gerais                                        - 23/05/2020

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="projEscolaModelStoreContainer" CdmEntityContainer="projEscolaEntities">
+    <EntitySetMapping Name="aluno">
+      <EntityTypeMapping TypeName="projEscolaModel.aluno">
+        <MappingFragment StoreEntitySet="aluno">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ra" ColumnName="ra" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="curso">
+      <EntityTypeMapping TypeName="projEscolaModel.curso">
+        <MappingFragment StoreEntitySet="curso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="carga_horaria" ColumnName="carga_horaria" />
+          <ScalarProperty Name="horario_inicio" ColumnName="horario_inicio" />
+          <ScalarProperty Name="horario_fim" ColumnName="horario_fim" />
+          <ScalarProperty Name="numero_sala" ColumnName="numero_sala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="curso_professor">
+      <EntityTypeMapping TypeName="projEscolaModel.curso_professor">
+        <MappingFragment StoreEntitySet="curso_professor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="id_professor" ColumnName="id_professor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="professor">
+      <EntityTypeMapping TypeName="projEscolaModel.professor">
+        <MappingFragment StoreEntitySet="professor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

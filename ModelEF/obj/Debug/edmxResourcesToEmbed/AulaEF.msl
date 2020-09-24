@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AulaDBModelStoreContainer" CdmEntityContainer="AulaDBEntities">
+    <EntitySetMapping Name="aula">
+      <EntityTypeMapping TypeName="AulaDBModel.aula">
+        <MappingFragment StoreEntitySet="aula">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome_disciplina" ColumnName="nome_disciplina" />
+          <ScalarProperty Name="quantidade_aluno" ColumnName="quantidade_aluno" />
+          <ScalarProperty Name="nome_professor" ColumnName="nome_professor" />
+          <ScalarProperty Name="nome_faculdade" ColumnName="nome_faculdade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
